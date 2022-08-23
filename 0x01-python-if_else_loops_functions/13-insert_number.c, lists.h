@@ -1,54 +1,35 @@
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 #include "lists.h"
 
 /**
- * insert_node - Inserts a new node in ascending order of a sorted linked list
- * of numbers.
+ * main - check the code for Holberton School students.
  *
- * @head: Pointer of a pointer to the beginning of the linked list.
- * @number: The number of the new node.
- *
- * Return: The address of the newly added node, or NULL upon failure.
+ * Return: Always 0.
  */
-
-listint_t *insert_node(listint_t **head, int number)
+int main(void)
 {
-	listint_t *new_node;
-	listint_t *current;
+    listint_t *head;
 
-	if (!head)
-		return (NULL);
+    head = NULL;
+    add_nodeint_end(&head, 0);
+    add_nodeint_end(&head, 1);
+    add_nodeint_end(&head, 2);
+    add_nodeint_end(&head, 3);
+    add_nodeint_end(&head, 4);
+    add_nodeint_end(&head, 98);
+    add_nodeint_end(&head, 402);
+    add_nodeint_end(&head, 1024);
+    print_listint(head);
 
-	new_node == malloc(sizeof(listint_t));
-	if (!new_node)
-		return (NULL);
-	new_node->n = number;
+    printf("-----------------\n");
 
-	current = *head;
-	if (current)
-	{
-		if (current->n > number)
-		{
-			new_node->next = current;
-			*head = new_node;
-		}
-		else
-		{
-			while (current && current->next)
-			{
-				if (current->next->n < number)
-					current = current->next;
-				else
-					break;
-			}
-			new_node->next = current->next;
-			current->next = new_node;
-		}
-	}
-	else
-	{
-		*head = new_node;
-		new_node->next = NULL;
-	}
+    insert_node(&head, 27);
 
-	return (new_node);
+    print_listint(head);
+
+    free_listint(head);
+
+    return (0);
 }
