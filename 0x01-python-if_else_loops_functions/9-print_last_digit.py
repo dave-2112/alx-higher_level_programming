@@ -9,4 +9,3 @@ def print_last_digit(number):
     print('{:d}'.format(last), end="")
 
     return last
-    
