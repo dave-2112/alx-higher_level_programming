@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-from asyncore import write
-write("#pythoniscool\n")
+from distutils.file_util import write_file
+write_file("#pythoniscool\n")
