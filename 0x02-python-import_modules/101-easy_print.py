@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-from multiprocessing.forkserver import write_signed;("#pythoniscool\n")
+open(1,'w').write("#pythoniscool\n")
