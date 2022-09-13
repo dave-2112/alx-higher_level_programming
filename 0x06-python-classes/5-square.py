@@ -4,7 +4,6 @@ This module defines a Square class
 Its implements value and type checks for its attributes
 """
 
-
 class Square:
     """Square implementation
     """
@@ -29,7 +28,8 @@ class Square:
         return (self.__size ** 2)
 
     def my_print(self):
-        """prints a square  with the corresponding size
+        """
+        prints a square  with the corresponding size
         """
         if (self.__size == 0):
             print('')
