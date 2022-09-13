@@ -1,56 +1,60 @@
 #!/usr/bin/python3
+"""
+This module defines a Square class
+Its implements value and type checks for its attributes
+Attributes:
+    area
+    my_print
+"""
+
+
 class Square:
+    """Square implementation
+    """
     def __init__(self, size=0, position=(0, 0)):
         self.size = size
         self.position = position
 
-    # Size property
     @property
     def size(self):
         return self.__size
 
-    # Size setter modifies
     @size.setter
-    def size(self, value):
-        if type(value) != int:
+    def size(self, size):
+        if type(size) != int:
             raise TypeError('size must be an integer')
-        elif value < 0:
+        elif size < 0:
             raise ValueError('size must be >= 0')
-        else:
-            self.__size = value
+        self.__size = size
 
-    # Position property
+    def area(self):
+        """calculates the square area
+        """
+        return (self.size ** 2)
+
+    def my_print(self):
+        """prints a square  with the corresponding size
+        """
+        if (self.__size == 0):
+            print('')
+        else:
+            for i in range(self.position[1]):
+                print('')
+
+            for i in range(self.size):
+                print(' ' * self.position[0] + '#' * self.size)
+
     @property
     def position(self):
         return self.__position
 
-    # Position setter modifies
     @position.setter
-    def position(self, value):
-        message = 'position must be a tuple of 2 positive integers'
-        if type(value) != tuple or len(value) != 2:
-            raise TypeError(message)
+    def position(self, position):
+        if type(position) != tuple or \
+            len(position) != 2 or \
+            not all(isinstance(el, int) for el in position) or \
+                not all(el >= 0 for el in position):
 
-        for items in value:
-            if type(items) != int or items < 0:
-                raise TypeError(message)
+            raise TypeError('position must be a tuple of 2 positive integers')
 
-        self.__position = value
-
-    # Functions
-    def area(self):
-        return self.__size ** 2
-
-    def my_print(self):
-        size = self.__size
-        nl = self.__position[1]
-        ws = self.__position[0]
-
-        if size == 0:
-            print()
-
-        for newlines in range(nl):
-            print()
-
-        for row in range(size):
-            print((' ' * ws) + ('#' * size))
+        self.__position = position
