@@ -1,10 +1,7 @@
 #!/usr/bin/python3
-"""
-This is the "Rectangle"  module.
-This module provides a simple Rectangle class.
-"""
+"""This module contains a Rectangle class"""
 
 
 class Rectangle:
-    """A simple Rectangle class"""
+    """An empty class Rectangle that defines a rectagle"""
     pass
