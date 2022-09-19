@@ -1,6 +1,9 @@
 #!/usr/bin/python3
-"""This module contains a Rectangle class"""
+"""Module 0-rectangle
+Defines an empty Rectangle class.
+"""
 
-class Rectangle: 
-    """An empty class Rectangle that defines a rectagle"""
+
+class Rectangle:
+    """Empty class."""
     pass
