@@ -1,20 +1,16 @@
 #!/usr/bin/python3
-"""
-Contains the "append after" function
-"""
+""" Module for append after """
 
 
 def append_after(filename="", search_string="", new_string=""):
-    """appends "new_string" after a line containing
-    "search_string" in "filename" """
+    """ append a string into a new_line """
+    aux = ""
     with open(filename, 'r', encoding='utf-8') as f:
-        line_list = []
-        while True:
-            line = f.readline()
-            if line == "":
-                break
-            line_list.append(line)
-            if search_string in line:
-                line_list.append(new_string)
+        lines = f.readlines()
+    for line in lines:
+        if line.find(search_string) != -1:
+            aux += line + new_string
+        else:
+            aux += line
     with open(filename, 'w', encoding='utf-8') as f:
-        f.writelines(line_list)
+        f.write(aux)

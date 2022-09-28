@@ -1,10 +1,13 @@
 #!/usr/bin/python3
-"""
-Contains the function "append_wrtie"
-"""
+"""This module defines the to_json_string function"""
 
 
-def append_write(filename="", text=""):
-    """returns the number of chars appended to "filename" from "text" """
-    with open(filename, 'a', encoding='utf=8') as f:
-        return f.write(text)
+import json
+
+
+def from_json_string(my_str):
+    """Returns the JSON representation of an object (string)
+    Args:
+    my_obj (str): object to return JSON representation of
+    """
+    return json.loads(my_str)

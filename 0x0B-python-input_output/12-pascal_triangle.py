@@ -1,26 +1,17 @@
 #!/usr/bin/python3
-"""
-Contains the clas "Student"
-"""
+""" Module for pascal triangle """
 
 
-class Student:
-    """Representation of a student"""
-    def __init__(self, first_name, last_name, age):
-        """Initializes the student"""
-        self.first_name = first_name
-        self.last_name = last_name
-        self.age = age
-
-    def to_json(self, attrs=None):
-        """returns a dictionary representation of a Student instance
-        with specified attributes"""
-        if attrs is None:
-            return self.__dict__
-        new_dict = {}
-        for a in attrs:
-            try:
-                new_dict[a] = self.__dict__[a]
-            except:
-                pass
-        return new_dict
+def pascal_triangle(n):
+    """ Pascal triangle """
+    tri = []
+    ini = 1
+    for i in range(0, n):
+        rows = []
+        for j in range(0, i + 1):
+            if i == 0 or j == 0 or (i > 0 and j == i):
+                rows.append(ini)
+            else:
+                rows.append(tri[i - 1][j] + tri[i - 1][j - 1])
+        tri.append(rows)
+    return tri
